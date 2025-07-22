@@ -1,0 +1,14 @@
+<div class="categorias-container">
+  <h2>Agregar Categoría</h2>
+  <form (ngSubmit)="agregarCategoria()" #form="ngForm">
+    <input type="text" placeholder="Nombre de la categoría" [(ngModel)]="nuevaCategoria.nombre" name="nombre" required />
+    <button type="submit">Agregar Categoría</button>
+  </form>
+
+  <h2>Lista de Categorías</h2>
+  <div *ngFor="let categoria of categorias()" class="categoria-card">
+    <p><strong>ID:</strong> {{ categoria.id }}</p>
+    <p><strong>Nombre:</strong> {{ categoria.nombre }}</p>
+    <button (click)="eliminarCategoria(categoria.id)">Eliminar</button>
+  </div>
+</div>

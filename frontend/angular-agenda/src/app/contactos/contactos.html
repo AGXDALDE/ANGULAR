@@ -1,0 +1,18 @@
+<div class="contactos-container">
+  <h2>Agregar Contacto</h2>
+  <form (ngSubmit)="agregarContacto()" #form="ngForm">
+    <input type="text" placeholder="Nombre" [(ngModel)]="nuevoContacto.nombre" name="nombre" required />
+    <input type="text" placeholder="Teléfono" [(ngModel)]="nuevoContacto.telefono" name="telefono" required />
+    <input type="email" placeholder="Email" [(ngModel)]="nuevoContacto.email" name="email" required />
+    <button type="submit">Agregar Contacto</button>
+  </form>
+
+  <h2>Lista de Contactos</h2>
+  <div *ngFor="let contacto of contactos()" class="contact-card">
+    <p><strong>ID:</strong> {{ contacto.id }}</p>
+    <p><strong>Nombre:</strong> {{ contacto.nombre }}</p>
+    <p><strong>Teléfono:</strong> {{ contacto.telefono }}</p>
+    <p><strong>Email:</strong> {{ contacto.email }}</p>
+    <button (click)="eliminarContacto(contacto.id)">Eliminar</button>
+  </div>
+</div>
